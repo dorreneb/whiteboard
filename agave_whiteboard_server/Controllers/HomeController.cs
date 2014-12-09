@@ -26,5 +26,10 @@ namespace agave_whiteboard_server.Controllers
 
             return View();
         }
+
+        public ActionResult WhiteBoard()
+        {
+            return View();
+        }
     }
 }
