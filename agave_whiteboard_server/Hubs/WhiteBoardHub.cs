@@ -31,5 +31,10 @@ namespace agave_whiteboard_server
             return Groups.Remove(Context.ConnectionId, roomName);
         }
 
+        public Task Sync(string json, string roomName)
+        {
+            return Clients.Group(roomName).getSync(json);
+        }
+
     }
 }

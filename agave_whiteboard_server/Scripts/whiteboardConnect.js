@@ -3,23 +3,37 @@
     "username": "#displayname",
     "message": "#message",
     "sendmessagebutton": "#sendmessage",
-    "group" : "#groupName"
+    "group": "#groupName",
+    "canvas" : "#canvas"
 };
 
 $(function () {
     // Reference the auto-generated proxy for the hub.
-    var chat = $.connection.whiteBoardHub;
+    window.chat = $.connection.whiteBoardHub;
 
     //function that shows someone is logging into the system
-    chat.client.systemMessage = function (message) {
+    window.chat.client.systemMessage = function (message) {
         $(components.chat).append('<li><strong>' + htmlEncode(message) + '</strong></li>');
     }
 
     // Create a function that the hub can call back to display messages.
-    chat.client.addNewMessageToPage = function (name, message) {
+    window.chat.client.addNewMessageToPage = function (name, message) {
         // Add the message to the page.
         $(components.chat).append('<li><strong>' + htmlEncode(name) + '</strong>: ' + htmlEncode(message) + '</li>');
     };
+
+    //changes canvas after receiving updates
+    window.chat.client.getSync = function (json) {
+        console.log("got sync");
+        window.canvas.loadFromJSON(json, canvas.renderAll.bind(canvas));
+    }
+
+    //sends the json from the canvas to all other members in the group
+    window.sync = function (json) {
+        console.log("about to sync to *" + $(components.group).val() + "*");
+        console.log(json);
+        chat.server.sync(json, $(components.group).val());
+    }
 
     // Get the user name and store it to prepend to messages.
     $(components.username).val(prompt('Enter your name:', ''));
@@ -43,3 +57,4 @@ function htmlEncode(value) {
     var encodedValue = $('<div />').text(value).html();
     return encodedValue;
 }
+
