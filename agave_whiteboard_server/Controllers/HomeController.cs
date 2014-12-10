@@ -27,8 +27,10 @@ namespace agave_whiteboard_server.Controllers
             return View();
         }
 
-        public ActionResult WhiteBoard()
+        [Route("{id:string}")]
+        public ActionResult WhiteBoard(string id)
         {
+            ViewBag.Group = id;
             return View();
         }
     }
