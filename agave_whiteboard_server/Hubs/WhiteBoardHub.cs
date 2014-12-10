@@ -17,7 +17,6 @@ namespace agave_whiteboard_server
 
         public void Send(string name, string message, string roomName)
         {
-            //Clients.All.addNewMessageToPage(name, message);
             Clients.Group(roomName).addNewMessageToPage(name, message);
         }
 
