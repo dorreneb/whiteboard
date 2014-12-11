@@ -32,12 +32,6 @@ $(function () {
         chat.server.sync(json, $(components.group).val());
     }
 
-    // Get the user name and store it to prepend to messages.
-    $(components.username).val(prompt('Enter your name:', ''));
-
-    // Set initial focus to message input box.
-    $(components.message).focus();
-
     // Start the connection.
     $.connection.hub.start().done(function () {
         $.connection.whiteBoardHub.server.joinRoom($(components.username).val(), $(components.group).val());
