@@ -2,13 +2,10 @@
 
 (function () {
     "use strict";
-    
-    // The initialize function must be run each time a new page is loaded
-    Office.initialize = function (reason) {
-
+    try {
         
         $(document).ready(function () {
-            //document.write("desperation");
+           
             app.initialize();
             var docname;
             var loaded = false;
@@ -27,10 +24,12 @@
             var destinationUrl = "http://localhost:55802/home/whiteboard?isJoin=" + loaded + "&id=" + docname;
                
              window.location.replace(destinationUrl);  
-             //document.write("id is" + docname);
+            
         });
 
     };
-
-    //document.write("at the end of initialize");
+    
+    } catch (err) {
+        document.write(":(");
+    }
 })();
