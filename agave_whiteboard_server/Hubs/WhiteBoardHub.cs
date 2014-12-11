@@ -17,7 +17,6 @@ namespace agave_whiteboard_server
 
         public void Send(string name, string message, string roomName)
         {
-            //Clients.All.addNewMessageToPage(name, message);
             Clients.Group(roomName).addNewMessageToPage(name, message);
         }
 
@@ -32,9 +31,10 @@ namespace agave_whiteboard_server
             return Groups.Remove(Context.ConnectionId, roomName);
         }
 
-        public void SendRoomList(string roomList)
+        public Task Sync(string json, string roomName)
         {
-          
+            return Clients.Group(roomName).getSync(json);
         }
+
     }
 }
