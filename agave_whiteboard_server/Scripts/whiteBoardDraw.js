@@ -18,8 +18,16 @@ function responsive() {
     });
 }
 
+//when the window resizes resize the canvas
+window.onresize = function(event) {
+    responsive();
+};
+
 $(document).ready(function () {
     window.canvas = new fabric.Canvas('drawCanvas');
+
+    //resize the window to fit the screen
+    responsive();
 
     //when clicking on the screen draw a circle
     window.canvas.on('mouse:down', function (options) {
@@ -31,11 +39,9 @@ $(document).ready(function () {
         }
     });
 
+    //when releasing sync the server
     window.canvas.on('mouse:up', function (options) {
         var status = JSON.stringify(window.canvas);
         window.sync(status);
     });
-
-    responsive();
-  
 });
