@@ -12,7 +12,8 @@
     border:0;
     margin: 0;
     height: 60px;
-
+    color: white;
+    text-align: center;
 }
 
 #menu {
@@ -40,5 +41,18 @@ img {
 
 #settingsPanel {
     visibility:hidden;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+body {
+    height: 100%;
+    background-color: #e5e7f5;
+}
+
+html {
+    height: 100%;
 }
 

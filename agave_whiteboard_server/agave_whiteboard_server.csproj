@@ -197,8 +197,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\WhiteBoard.cshtml" />
-    <Content Include="Views\Home\Rooms.cshtml" />
     <Content Include="Views\Home\office.cshtml" />
+    <Content Include="Views\Home\Rooms.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
