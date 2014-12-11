@@ -2,15 +2,7 @@
     ViewBag.Title = ViewBag.Group;
 }
 
-
- @*<h2>Chat (@ViewBag.Group)</h2>*@
-<div @*class="container"*@>
-    @*<input type="text" id="message" />
-    <input type="button" id="sendmessage" value="Send" />*@
-    <input type="hidden" id="displayname" />
-    <input type="hidden" id="groupName" value="@ViewBag.Group"/>
-    @*<ul id="discussion"></ul>*@
-</div>   
+<input type="hidden" id="groupName" value="@ViewBag.Group"/>
 
 <div id="menuDiv">
     <ul id="menu">
@@ -22,9 +14,8 @@
 
 <div id="canvasDiv">
     <canvas id="drawCanvas">
-        Your browser does not support the HTML5 canvas tag.
+        Your browser does not support the HTML5 canvas tag. Upgrade your browser to use this app.
     </canvas>
-
 </div>
 
 
@@ -35,7 +26,7 @@
         window.chat = null;
         window.sync = null;
         window.canvas = null;
-        window.currentAction = false;
+        window.currentAction = null;
     </script>
     <!--Script references. -->
     <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
