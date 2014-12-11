@@ -32,8 +32,8 @@ window.typeWords = function (text, x, y) {
     var text = new fabric.IText(text, {
         fontFamily: 'Segoe UI Light',
         left: x,
-        top: y
-
+        top: y,
+        fontSize: 12
     });
     window.canvas.add(text);
 
