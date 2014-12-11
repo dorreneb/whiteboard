@@ -27,6 +27,19 @@ window.onresize = function (event) {
     resizeScreen();
 };
 
+//for debugging
+window.typeWords = function (text, x, y) {
+    var text = new fabric.IText(text, {
+        fontFamily: 'Segoe UI Light',
+        left: x,
+        top: y
+
+    });
+    window.canvas.add(text);
+
+    window.sync();
+}
+
 //if draw button is selected draw a circle
 $(drawComponents.drawButton).click(function () {
     window.currentAction = drawComponents.drawButton;
@@ -62,10 +75,10 @@ $(document).ready(function () {
 
             var text = new fabric.IText('Tap and Type', {
                 fontFamily: 'Segoe UI Light',
-                left: options.e.clientX - 5, 
+                left: options.e.clientX - 5,
                 top: options.e.clientY - 5 - $(drawComponents.menu).height()
-                
-            })
+
+            });
             window.canvas.add(text);
 
             window.sync();
