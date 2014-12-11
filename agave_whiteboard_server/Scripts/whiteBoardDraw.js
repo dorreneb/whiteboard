@@ -6,7 +6,7 @@ var drawComponents = {
     "menu": "#menuDiv",
     "drawButton": "#insertDraw",
     "textButton": "#insertText",
-    "selectButton": "#insertNone"
+    "selectButton": "#insertNone",
 };
 
 //resize the canvas to fit all available space on the screen and nothing more
@@ -21,6 +21,28 @@ function resizeScreen() {
         height: heightn
     });
 }
+
+//keyboard shortcuts -
+//  escape will deselect objects and escape draw mode
+//  delete will delete a selected object
+function onKeyDownHandler(e) {
+    console.log(e.keyCode);
+    switch (e.keyCode) {
+        case 46: // delete
+            console.log("delete");
+            var activeObject = canvas.getActiveObject();
+            if (activeObject) {
+                canvas.remove(activeObject);
+            }
+            return;
+        case 27:
+            console.log("go back");
+            window.currentAction = drawComponents.selectButton;
+            window.canvas.isDrawingMode = false;
+            window.canvas.deactivateAll().renderAll();
+            return;
+    }
+};
 
 //when the window resizes resize the canvas
 window.onresize = function (event) {
@@ -50,8 +72,6 @@ $(drawComponents.drawButton).click(function () {
 $(drawComponents.textButton).click(function () {
     window.currentAction = drawComponents.textButton;
     window.canvas.isDrawingMode = false;
-
-
 });
 
 //if text button is selected draw text
@@ -59,7 +79,6 @@ $(drawComponents.selectButton).click(function () {
     window.currentAction = drawComponents.selectButton;
     window.canvas.isDrawingMode = false;
 });
-
 
 //when document is actually ready do stuff
 $(document).ready(function () {
@@ -72,7 +91,7 @@ $(document).ready(function () {
     //insert text when the draw button is clicked and text is selected
     window.canvas.on('mouse:up', function (options) {
         if (!options.target && window.currentAction === drawComponents.textButton) {
-
+            //create the text object
             var text = new fabric.IText('Tap and Type', {
                 fontFamily: 'Segoe UI Light',
                 left: options.e.clientX - 5,
@@ -85,8 +104,11 @@ $(document).ready(function () {
         }
     });
 
+    //if something has been modified update the panel
     window.canvas.on('object:modified', function (options) {
         window.sync();
     });
+
+    window.onkeydown = onKeyDownHandler;
 
 });

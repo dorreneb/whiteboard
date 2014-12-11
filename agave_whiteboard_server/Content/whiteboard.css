@@ -36,3 +36,8 @@ img {
 #menuDiv {
     overflow: visible;
 }
+
+#settingsPanel {
+    visibility:hidden;
+}
+

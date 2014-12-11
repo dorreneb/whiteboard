@@ -8,7 +8,7 @@
     <ul id="menu">
         <li id="insertDraw"><img src="~/Content/drawing4.svg" /></li>
         <li id="insertText"><img src="~/Content/message5.svg" /></li>
-        <li id="insertNone"><img src="~/Content/selected2.svg" /></li>     
+        <li id="insertNone"><img src="~/Content/selected2.svg" /></li>
     </ul>
 </div>
 
@@ -17,7 +17,6 @@
         Your browser does not support the HTML5 canvas tag. Upgrade your browser to use this app.
     </canvas>
 </div>
-
 
 @section scripts {
     <!-- Javascript is dumb and requires that I instantiate global variables before loading javascript.-->
@@ -39,6 +38,7 @@
     <!--Script references. -->
     <!--The jQuery library is required and is referenced by default in _Layout.cshtml. -->
     <!--Reference the SignalR library. -->
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
     <script src="~/Scripts/jquery.signalR-2.1.2.min.js"></script>
     <!-- Canvas drawing library -->
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.8/fabric.min.js"> </script>
