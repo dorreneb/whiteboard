@@ -12,6 +12,15 @@ namespace agave_whiteboard_server.Models
             mRooms = new List<Room>();
         }
 
+        public Room GetRoomById(string id)
+        {
+            foreach (Room r in mRooms)
+            {
+                if (r.Name == id) return r;
+            }
+            return null;
+        }
+
         public bool isRoomInList(string id)
         {
             foreach (Room r in mRooms)

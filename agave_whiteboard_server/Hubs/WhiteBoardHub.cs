@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR;
 using System.Threading.Tasks;
+using agave_whiteboard_server.Models;
 
 namespace agave_whiteboard_server
 {
@@ -33,10 +34,12 @@ namespace agave_whiteboard_server
             Clients.Group(roomName).systemMessage(name + " joined.");
 
             //if the board already exists sync to the room status
-            string boardState = boards[roomName];
-            if (boardState != null)
+            //string boardState = boards[roomName];
+            Room room = StaticModel.rooms.GetRoomById(roomName);
+            
+            if (room != null)
             {
-                await Clients.Group(roomName).getSync(boardState);
+                await Clients.Group(room.Name).getSync(room.Drawing);
             }
         }
 
@@ -47,6 +50,8 @@ namespace agave_whiteboard_server
 
         public Task Sync(string json, string roomName)
         {
+            Room room = StaticModel.rooms.GetRoomById(roomName);
+            if (room != null) room.Drawing = json;
             boards[roomName] = json;
             return Clients.Group(roomName).getSync(json);
         }

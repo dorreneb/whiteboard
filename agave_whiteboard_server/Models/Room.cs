@@ -10,10 +10,18 @@ namespace agave_whiteboard_server.Models
         public Room ()
         {
             mName = null;
+            mDrawing = null;
         }
         public Room (string id)
         {
             mName = id;
+        }
+
+        private string mDrawing;
+        public string Drawing
+        {
+            get { return mDrawing; }
+            set { mDrawing = value; }
         }
         private string mName;
         public string Name 

@@ -100,8 +100,9 @@ $(document).ready(function () {
             });
             window.canvas.add(text);
 
-            window.sync();
+            
         }
+        window.sync();
     });
 
     //if something has been modified update the panel
