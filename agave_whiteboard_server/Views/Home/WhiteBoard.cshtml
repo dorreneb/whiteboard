@@ -12,9 +12,20 @@
     @*<ul id="discussion"></ul>*@
 </div>   
 
-<canvas id="drawCanvas">
-    Your browser does not support the HTML5 canvas tag.
-</canvas>
+<div id="menuDiv">
+    <ul id="menu">
+        <li id="insertDraw"><img src="~/Content/drawing4.svg" /></li>
+        <li id="insertText"><img src="~/Content/message5.svg" /></li>     
+    </ul>
+</div>
+
+<div id="canvasDiv">
+    <canvas id="drawCanvas">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+</div>
+
 
 @section scripts {
     <!-- Javascript is dumb and requires that I instantiate global variables before loading javascript.-->

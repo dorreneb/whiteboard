@@ -24,14 +24,11 @@ $(function () {
 
     //changes canvas after receiving updates
     window.chat.client.getSync = function (json) {
-        console.log("got sync");
         window.canvas.loadFromJSON(json, canvas.renderAll.bind(canvas));
     }
 
     //sends the json from the canvas to all other members in the group
     window.sync = function (json) {
-        console.log("about to sync to *" + $(components.group).val() + "*");
-        console.log(json);
         chat.server.sync(json, $(components.group).val());
     }
 

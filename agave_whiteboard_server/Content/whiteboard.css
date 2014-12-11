@@ -6,3 +6,33 @@
     height: 100%;
     background-color: #e5e7f5;
 }
+
+#menuDiv {
+    background-color: #333232;
+    border:0;
+    margin: 0;
+    height: 60px;
+
+}
+
+#menu {
+    list-style: none;
+    text-align: center;
+}
+
+li {
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+img {
+    height: 40px;
+    width: 40px;
+}
+
+#menuDiv {
+    overflow: visible;
+}
