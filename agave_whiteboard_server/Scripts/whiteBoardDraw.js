@@ -1,6 +1,6 @@
 ﻿
 var drawComponents = {
-    "canvasName" : "drawCanvas",
+    "canvasName": "drawCanvas",
     "canvas": "#" + this.canvasName,
     "group": "#groupName",
     "menu": "#menuDiv",
@@ -30,16 +30,21 @@ window.onresize = function (event) {
 //if draw button is selected draw a circle
 $(drawComponents.drawButton).click(function () {
     window.currentAction = drawComponents.drawButton;
+    window.canvas.isDrawingMode = true;
 });
 
 //if text button is selected draw text
 $(drawComponents.textButton).click(function () {
     window.currentAction = drawComponents.textButton;
+    window.canvas.isDrawingMode = false;
+
+
 });
 
 //if text button is selected draw text
 $(drawComponents.selectButton).click(function () {
     window.currentAction = drawComponents.selectButton;
+    window.canvas.isDrawingMode = false;
 });
 
 
@@ -51,24 +56,18 @@ $(document).ready(function () {
     //resize the window to fit the screen
     resizeScreen();
 
-    //when clicking on the screen draw text when necessary
-    window.canvas.on('mouse:up', function (options) {
-        if (!options.target && window.currentAction === drawComponents.drawButton) {
-            var circle = new fabric.Circle({
-                radius: 10, fill: 'green', left: options.e.clientX - 5, top: options.e.clientY - 5 - $(drawComponents.menu).height()
-            });
-            window.canvas.add(circle);
-            window.sync();
-        }
-    });
-
-    //when clicking on the screen draw a circle
+    //insert text when the draw button is clicked and text is selected
     window.canvas.on('mouse:up', function (options) {
         if (!options.target && window.currentAction === drawComponents.textButton) {
-            var circle = new fabric.Circle({
-                radius: 10, fill: 'red', left: options.e.clientX - 5, top: options.e.clientY - 5 - $(drawComponents.menu).height()
-            });
-            window.canvas.add(circle);
+
+            var text = new fabric.IText('Tap and Type', {
+                fontFamily: 'Segoe UI Light',
+                left: options.e.clientX - 5, 
+                top: options.e.clientY - 5 - $(drawComponents.menu).height()
+                
+            })
+            window.canvas.add(text);
+
             window.sync();
         }
     });
