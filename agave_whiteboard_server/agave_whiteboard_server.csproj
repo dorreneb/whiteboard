@@ -144,6 +144,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\drawing4.svg" />
     <Content Include="Content\message5.svg" />
+    <Content Include="Content\Office.css" />
     <Content Include="Content\paintbrush9.svg" />
     <Content Include="Content\selected2.svg" />
     <Content Include="Content\whiteboard.css" />
@@ -160,6 +161,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Home.css" />
     <Content Include="Scripts\Home.js" />
+    <Content Include="Scripts\HomeWB.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
