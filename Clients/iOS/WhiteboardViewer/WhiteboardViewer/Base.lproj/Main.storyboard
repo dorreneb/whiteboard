@@ -30,6 +30,9 @@
                             <constraint firstItem="bOB-iv-DE0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="m5U-Tp-hpe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="bOB-iv-DE0" id="GNZ-qU-s0N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="a3R-Bz-PPD">
