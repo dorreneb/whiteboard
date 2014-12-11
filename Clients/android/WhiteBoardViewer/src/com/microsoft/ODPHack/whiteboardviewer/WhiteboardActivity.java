@@ -4,12 +4,16 @@ import com.microsoft.ODPHack.whiteboardviewer.util.SystemUiHider;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 
 /**
@@ -55,10 +59,14 @@ public class WhiteboardActivity extends Activity {
 
         final View controlsView = findViewById(R.id.fullscreen_content_controls);
         final View contentView = findViewById(R.id.fullscreen_content);
+        
         final WebView webViewWB = (WebView) findViewById(R.id.webView_WB);
+        WebChromeClient wcClient = new WebChromeClient();
         webViewWB.getSettings().setJavaScriptEnabled(true);
-        webViewWB.loadUrl("https://agavewhiteboardserver.azurewebsites.net/home/whiteboard/bing");
+       webViewWB.setWebChromeClient(wcClient);
+        webViewWB.loadUrl("https://agavewhiteboardserver.azurewebsites.net/home/whiteboard");
 
+        
         // Set up an instance of SystemUiHider to control the system UI for
         // this activity.
         mSystemUiHider = SystemUiHider.getInstance(this, contentView, HIDER_FLAGS);
