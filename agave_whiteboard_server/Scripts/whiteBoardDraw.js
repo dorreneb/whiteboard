@@ -58,7 +58,6 @@ window.typeWords = function (text, x, y) {
 
     });
     window.canvas.add(text);
-
     window.sync();
 }
 
@@ -99,7 +98,6 @@ $(document).ready(function () {
 
             });
             window.canvas.add(text);
-
             window.sync();
         }
     });

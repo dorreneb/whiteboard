@@ -3,18 +3,23 @@
     ViewBag.Title = "Rooms";
 }
 
-<h2>Rooms</h2>
-<label id="filename">placeholder</label>
-<table>
+<div id="menuDiv">
 
-    @foreach (agave_whiteboard_server.Models.Room room in Model)
-    {
-        <tr>
-            <td>@room.Name</td>
-        </tr>
-    }
-</table>
+    Rooms
+</div>
+<div id="roomsList">
+    <ul>
+
+        @foreach (agave_whiteboard_server.Models.Room room in Model)
+        {
+            
+                <li><a href="/home/whiteboard?isjoin=true&id=@room.Name">@room.Name</a></li>
+            
+        }
+    </ul>
+</div>
+
 @section scripts {
-   
+
 }
 
