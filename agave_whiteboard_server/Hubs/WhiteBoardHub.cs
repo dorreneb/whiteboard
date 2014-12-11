@@ -32,5 +32,9 @@ namespace agave_whiteboard_server
             return Groups.Remove(Context.ConnectionId, roomName);
         }
 
+        public void SendRoomList(string roomList)
+        {
+          
+        }
     }
 }
