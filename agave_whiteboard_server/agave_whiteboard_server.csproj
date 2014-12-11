@@ -142,6 +142,7 @@
     <Content Include="Content\drawing4.svg" />
     <Content Include="Content\message5.svg" />
     <Content Include="Content\paintbrush9.svg" />
+    <Content Include="Content\selected2.svg" />
     <Content Include="Content\whiteboard.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
