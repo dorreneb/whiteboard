@@ -33,5 +33,16 @@ namespace agave_whiteboard_server.Controllers
             ViewBag.Group = id;
             return View();
         }
+
+        public ActionResult Rooms()
+        {
+            return View();
+        }
+
+        public ActionResult Office()
+        {
+            return View();
+        }
+
     }
 }
