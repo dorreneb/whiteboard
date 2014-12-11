@@ -5,7 +5,7 @@
 
 <div id="menuDiv">
 
-    Rooms
+    <span class="title">Rooms</span>
 </div>
 <div id="roomsList">
     <ul>
@@ -13,7 +13,7 @@
         @foreach (agave_whiteboard_server.Models.Room room in Model)
         {
             
-                <li><a href="/home/whiteboard?isjoin=true&id=@room.Name">@room.Name</a></li>
+                <li class="rooms"><a href="/home/whiteboard?isjoin=true&id=@room.Name">@room.Name</a></li>
             
         }
     </ul>
