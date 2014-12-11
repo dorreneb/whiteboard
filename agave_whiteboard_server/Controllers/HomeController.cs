@@ -34,10 +34,21 @@ namespace agave_whiteboard_server.Controllers
             return View();
         }
 
-        [Route("{id:string}")]
-        public ActionResult WhiteBoard(string id)
+        [Route("{isJoin:string}{id:string}")]
+        public ActionResult WhiteBoard(string isJoin,string id)
         {
-            //if session with this id is already in progress, then make the id unique
+            if (isJoin=="true")
+            {
+                //if session no longer exists, recreate it
+                if (!StaticModel.rooms.isRoomInList(id))
+                {
+                    StaticModel.rooms.AddRoom(new Room(id));
+                }
+                ViewBag.Group = id;
+                return View(StaticModel.rooms.GetRooms());
+            }
+            //if not joining, then this is a request for a new room with the given id
+            //we need to make sure the id is unique first
             var originalId = id;
             while(StaticModel.rooms.isRoomInList(id))
             {
@@ -45,6 +56,7 @@ namespace agave_whiteboard_server.Controllers
                 Random rnd = new Random();
                 int subid = rnd.Next(1, 9999);
                 id = originalId + "#"+subid.ToString();
+                //keep looping and checking until we know the id is unique
             }
             StaticModel.rooms.AddRoom(new Room(id));
             ViewBag.Group = id;
