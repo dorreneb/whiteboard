@@ -34,12 +34,14 @@ function onKeyDownHandler(e) {
             if (activeObject) {
                 canvas.remove(activeObject);
             }
+            window.sync();
             return;
         case 27:
             console.log("go back");
             window.currentAction = drawComponents.selectButton;
             window.canvas.isDrawingMode = false;
             window.canvas.deactivateAll().renderAll();
+            window.sync();
             return;
     }
 };
@@ -47,6 +49,7 @@ function onKeyDownHandler(e) {
 //when the window resizes resize the canvas
 window.onresize = function (event) {
     resizeScreen();
+    window.sync();
 };
 
 //for debugging
@@ -99,12 +102,16 @@ $(document).ready(function () {
             });
             window.canvas.add(text);
 
+        } 
+        if (!options.target) {
+            window.sync();
         }
-        window.sync();
+        
     });
 
     //if something has been modified update the panel
     window.canvas.on('object:modified', function (options) {
+        console.log("asdf");
         window.sync();
     });
 

@@ -18,6 +18,7 @@ $(function () {
 
     //sends the json from the canvas to all other members in the group
     window.sync = function () {
+        console.log("log from sync");
         var status = JSON.stringify(window.canvas);
         chat.server.sync(status, $(components.group).val());
     }
