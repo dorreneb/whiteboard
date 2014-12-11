@@ -134,6 +134,9 @@
     </Compile>
     <Compile Include="Hubs\Startup.cs" />
     <Compile Include="Hubs\WhiteBoardHub.cs" />
+    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\Rooms.cs" />
+    <Compile Include="Models\StaticModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +156,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\agavewhiteboardserver.pubxml" />
+    <None Include="Properties\PublishProfiles\davechwb.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Home.css" />
     <Content Include="Scripts\Home.js" />
@@ -192,7 +196,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
