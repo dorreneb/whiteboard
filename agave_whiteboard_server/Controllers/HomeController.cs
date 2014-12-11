@@ -37,6 +37,15 @@ namespace agave_whiteboard_server.Controllers
         [Route("{id:string}")]
         public ActionResult WhiteBoard(string id)
         {
+            //if session with this id is already in progress, then make the id unique
+            var originalId = id;
+            while(StaticModel.rooms.isRoomInList(id))
+            {
+                //append number to id to make it unique and a new session
+                Random rnd = new Random();
+                int subid = rnd.Next(1, 9999);
+                id = originalId + "#"+subid.ToString();
+            }
             StaticModel.rooms.AddRoom(new Room(id));
             ViewBag.Group = id;
             return View(StaticModel.rooms.GetRooms());

@@ -26,7 +26,8 @@ namespace agave_whiteboard_server
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/whiteboard.css"));
+                      "~/Content/whiteboard.css",
+                      "~/Content/Office.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

@@ -25,5 +25,12 @@ $(function () {
     // Start the connection.
     $.connection.hub.start().done(function () {
         $.connection.whiteBoardHub.server.joinRoom($(components.username).val(), $(components.group).val());
+        if (Office&&Office.context&&Office.context.document&&Office.context.document.settings){
+            Office.context.document.settings.set("id", $(components.group).val());
+            Office.context.document.settings.saveAsync(function () { console.log("saved"); });
+        }
+        else {
+            console.log("no office context found");
+        }
     });
 });
