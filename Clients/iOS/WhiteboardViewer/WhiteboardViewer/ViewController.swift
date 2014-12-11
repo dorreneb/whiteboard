@@ -14,10 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let url = NSURL(string: "http://agavewhiteboardserver.azurewebsites.net/home/whiteboard/bing")
+        let url = NSURL(string: "http://agavewhiteboardserver.azurewebsites.net/home/whiteboard")
         
         let request = NSURLRequest(URL: url!)
-        
+        webView.scalesPageToFit = true
         webView.loadRequest(request)
         
     }
